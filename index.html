@@ -35,12 +35,12 @@ nav::-webkit-scrollbar{display:none}
 .match:last-child{border-bottom:none;padding-bottom:0}
 .team{display:flex;align-items:center;gap:8px;flex:1}
 .team.right{flex-direction:row-reverse;text-align:right}
+.team-code{font-size:11px;background:var(--border-color-tertiary);color:var(--color-text-secondary);padding:2px 6px;border-radius:4px;font-weight:600}
 .team-name{font-size:13px;font-weight:500}
 .score-box{display:flex;gap:4px;align-items:center;min-width:54px;justify-content:center}
 .score{font-size:18px;font-weight:500;width:22px;text-align:center}
 .score-sep{color:var(--color-text-tertiary);font-size:14px}
 .match-info{font-size:11px;color:var(--color-text-tertiary);text-align:center}
-.flag-big{font-size:18px;display:inline-block;line-height:1}
 .badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;font-weight:500}
 .badge-done{background:#23314d;color:var(--color-text-primary)}
 .badge-soon{background:rgba(26,58,107,0.3);color:#94a3b8}
@@ -151,7 +151,7 @@ nav::-webkit-scrollbar{display:none}
 <div class="hero">
   <div class="hero-badge">🏆 FIFA World Cup 2026</div>
   <h1>Copa Mundial 2026</h1>
-  <p class="hero-sub">Estados Unidos · Canadá · México — Fase de Grupos en curso</p>
+  <p class="hero-sub">Estados Unidos · Canadá · México — Fase de Grupos Completa</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="n">48</div><div class="l">Selecciones</div></div>
     <div class="hero-stat"><div class="n">104</div><div class="l">Partidos</div></div>
@@ -159,9 +159,9 @@ nav::-webkit-scrollbar{display:none}
     <div class="hero-stat"><div class="n">16</div><div class="l">Ciudades</div></div>
   </div>
   <div class="flags">
-    <span class="flag-chip">🇺🇸 EE.UU.</span>
-    <span class="flag-chip">🇨🇦 Canadá</span>
-    <span class="flag-chip">🇲🇽 México</span>
+    <span class="flag-chip">USA</span>
+    <span class="flag-chip">CAN</span>
+    <span class="flag-chip">MEX</span>
     <span class="flag-chip" style="background:rgba(200,16,46,0.4)">Final: 19 jul · MetLife Stadium</span>
   </div>
 </div>
@@ -175,20 +175,20 @@ nav::-webkit-scrollbar{display:none}
 </nav>
 
 <div class="section active" id="tab-resultados">
-  <p class="today-date">Jornada 1 — Fase de Grupos · Resultados al 17 jun 2026</p>
+  <p class="today-date">Jornada 1 — Calendario y Resultados Globales</p>
 
   <div class="card">
     <div class="card-title">Grupo A</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇲🇽</span><span class="team-name">México</span></div>
+      <div class="team"><span class="team-code">MEX</span><span class="team-name">México</span></div>
       <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">0</span></div>
-      <div class="team right"><span class="team-name">Sudáfrica</span><span class="flag-big">🇿🇦</span></div>
+      <div class="team right"><span class="team-name">Sudáfrica</span><span class="team-code">RSA</span></div>
       <span class="badge badge-done">FT</span>
     </div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇰🇷</span><span class="team-name">Corea del Sur</span></div>
+      <div class="team"><span class="team-code">KOR</span><span class="team-name">Corea del Sur</span></div>
       <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">1</span></div>
-      <div class="team right"><span class="team-name">Chequia</span><span class="flag-big">🇨🇿</span></div>
+      <div class="team right"><span class="team-name">Chequia</span><span class="team-code">CZE</span></div>
       <span class="badge badge-done">FT</span>
     </div>
   </div>
@@ -196,15 +196,15 @@ nav::-webkit-scrollbar{display:none}
   <div class="card">
     <div class="card-title">Grupo B</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇨🇦</span><span class="team-name">Canadá</span></div>
+      <div class="team"><span class="team-code">CAN</span><span class="team-name">Canadá</span></div>
       <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
-      <div class="team right"><span class="team-name">Bosnia y H.</span><span class="flag-big">🇧🇦</span></div>
+      <div class="team right"><span class="team-name">Bosnia y H.</span><span class="team-code">BIH</span></div>
       <span class="badge badge-done">FT</span>
     </div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇶🇦</span><span class="team-name">Catar</span></div>
+      <div class="team"><span class="team-code">QAT</span><span class="team-name">Catar</span></div>
       <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
-      <div class="team right"><span class="team-name">Suiza</span><span class="flag-big">🇨🇭</span></div>
+      <div class="team right"><span class="team-name">Suiza</span><span class="team-code">SUI</span></div>
       <span class="badge badge-done">FT</span>
     </div>
   </div>
@@ -212,15 +212,15 @@ nav::-webkit-scrollbar{display:none}
   <div class="card">
     <div class="card-title">Grupo C</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span><span class="team-name">Escocia</span></div>
+      <div class="team"><span class="team-code">SCO</span><span class="team-name">Escocia</span></div>
       <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">0</span></div>
-      <div class="team right"><span class="team-name">Haití</span><span class="flag-big">🇭🇹</span></div>
+      <div class="team right"><span class="team-name">Haití</span><span class="team-code">HAI</span></div>
       <span class="badge badge-done">FT</span>
     </div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇧🇷</span><span class="team-name">Brasil</span></div>
+      <div class="team"><span class="team-code">BRA</span><span class="team-name">Brasil</span></div>
       <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
-      <div class="team right"><span class="team-name">Marruecos</span><span class="flag-big">🇲🇦</span></div>
+      <div class="team right"><span class="team-name">Marruecos</span><span class="team-code">MAR</span></div>
       <span class="badge badge-done">FT</span>
     </div>
   </div>
@@ -228,15 +228,15 @@ nav::-webkit-scrollbar{display:none}
   <div class="card">
     <div class="card-title">Grupo D</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇺🇸</span><span class="team-name">Estados Unidos</span></div>
+      <div class="team"><span class="team-code">USA</span><span class="team-name">Estados Unidos</span></div>
       <div class="score-box"><span class="score">4</span><span class="score-sep">-</span><span class="score">1</span></div>
-      <div class="team right"><span class="team-name">Paraguay</span><span class="flag-big">🇵🇾</span></div>
+      <div class="team right"><span class="team-name">Paraguay</span><span class="team-code">PAR</span></div>
       <span class="badge badge-done">FT</span>
     </div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇦🇺</span><span class="team-name">Australia</span></div>
+      <div class="team"><span class="team-code">AUS</span><span class="team-name">Australia</span></div>
       <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">0</span></div>
-      <div class="team right"><span class="team-name">Turquía</span><span class="flag-big">🇹🇷</span></div>
+      <div class="team right"><span class="team-name">Turquía</span><span class="team-code">TUR</span></div>
       <span class="badge badge-done">FT</span>
     </div>
   </div>
@@ -244,15 +244,15 @@ nav::-webkit-scrollbar{display:none}
   <div class="card">
     <div class="card-title">Grupo E</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇩🇪</span><span class="team-name">Alemania</span></div>
+      <div class="team"><span class="team-code">GER</span><span class="team-name">Alemania</span></div>
       <div class="score-box"><span class="score">7</span><span class="score-sep">-</span><span class="score">1</span></div>
-      <div class="team right"><span class="team-name">Curazao</span><span class="flag-big">🇨🇼</span></div>
+      <div class="team right"><span class="team-name">Curazao</span><span class="team-code">CUW</span></div>
       <span class="badge badge-done">FT</span>
     </div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇨🇮</span><span class="team-name">Costa de Marfil</span></div>
+      <div class="team"><span class="team-code">CIV</span><span class="team-name">Costa de Marfil</span></div>
       <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">0</span></div>
-      <div class="team right"><span class="team-name">Ecuador</span><span class="flag-big">🇪🇨</span></div>
+      <div class="team right"><span class="team-name">Ecuador</span><span class="team-code">ECU</span></div>
       <span class="badge badge-done">FT</span>
     </div>
   </div>
@@ -260,15 +260,15 @@ nav::-webkit-scrollbar{display:none}
   <div class="card">
     <div class="card-title">Grupo F</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇸🇪</span><span class="team-name">Suecia</span></div>
+      <div class="team"><span class="team-code">SWE</span><span class="team-name">Suecia</span></div>
       <div class="score-box"><span class="score">5</span><span class="score-sep">-</span><span class="score">1</span></div>
-      <div class="team right"><span class="team-name">Túnez</span><span class="flag-big">🇹🇳</span></div>
+      <div class="team right"><span class="team-name">Túnez</span><span class="team-code">TUN</span></div>
       <span class="badge badge-done">FT</span>
     </div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇯🇵</span><span class="team-name">Japón</span></div>
+      <div class="team"><span class="team-code">JPN</span><span class="team-name">Japón</span></div>
       <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">2</span></div>
-      <div class="team right"><span class="team-name">Países Bajos</span><span class="flag-big">🇳🇱</span></div>
+      <div class="team right"><span class="team-name">Países Bajos</span><span class="team-code">NED</span></div>
       <span class="badge badge-done">FT</span>
     </div>
   </div>
@@ -276,59 +276,112 @@ nav::-webkit-scrollbar{display:none}
   <div class="card">
     <div class="card-title">Grupo G</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇧🇪</span><span class="team-name">Bélgica</span></div>
+      <div class="team"><span class="team-code">BEL</span><span class="team-name">Bélgica</span></div>
       <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
-      <div class="team right"><span class="team-name">Egipto</span><span class="flag-big">🇪🇬</span></div>
+      <div class="team right"><span class="team-name">Egipto</span><span class="team-code">EGY</span></div>
       <span class="badge badge-done">FT</span>
     </div>
-    <div class="match" style="opacity:0.6">
-      <div class="team"><span class="flag-big">🇮🇷</span><span class="team-name">Irán</span></div>
-      <div class="score-box"><span class="score" style="font-size:13px;color:var(--color-text-tertiary)">vs</span></div>
-      <div class="team right"><span class="team-name">Nueva Zelanda</span><span class="flag-big">🇳🇿</span></div>
-      <span class="badge badge-soon">Hoy</span>
+    <div class="match">
+      <div class="team"><span class="team-code">IRN</span><span class="team-name">Irán</span></div>
+      <div class="score-box"><span class="score">0</span><span class="score-sep">-</span><span class="score">0</span></div>
+      <div class="team right"><span class="team-name">Nueva Zelanda</span><span class="team-code">NZL</span></div>
+      <span class="badge badge-done">FT</span>
     </div>
   </div>
 
   <div class="card">
     <div class="card-title">Grupo H</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇪🇸</span><span class="team-name">España</span></div>
+      <div class="team"><span class="team-code">ESP</span><span class="team-name">España</span></div>
       <div class="score-box"><span class="score">0</span><span class="score-sep">-</span><span class="score">0</span></div>
-      <div class="team right"><span class="team-name">Cabo Verde</span><span class="flag-big">🇨🇻</span></div>
+      <div class="team right"><span class="team-name">Cabo Verde</span><span class="team-code">CPV</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match">
+      <div class="team"><span class="team-code">KSA</span><span class="team-name">Arabia Saudita</span></div>
+      <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">2</span></div>
+      <div class="team right"><span class="team-name">Uruguay</span><span class="team-code">URU</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo I</div>
+    <div class="match">
+      <div class="team"><span class="team-code">FRA</span><span class="team-name">Francia</span></div>
+      <div class="score-box"><span class="score">3</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Malí</span><span class="team-code">MLI</span></div>
       <span class="badge badge-done">FT</span>
     </div>
     <div class="match" style="opacity:0.6">
-      <div class="team"><span class="flag-big">🇸🇦</span><span class="team-name">Arabia Saudita</span></div>
+      <div class="team"><span class="team-code">COL</span><span class="team-name">Colombia</span></div>
       <div class="score-box"><span class="score" style="font-size:13px;color:var(--color-text-tertiary)">vs</span></div>
-      <div class="team right"><span class="team-name">Uruguay</span><span class="flag-big">🇺🇾</span></div>
+      <div class="team right"><span class="team-name">Corea del Norte</span><span class="team-code">PRK</span></div>
       <span class="badge badge-soon">Hoy</span>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title">Grupo J · Resultados destacados</div>
+    <div class="card-title">Grupo J</div>
     <div class="match">
-      <div class="team"><span class="flag-big">🇦🇷</span><span class="team-name">Argentina</span></div>
+      <div class="team"><span class="team-code">ARG</span><span class="team-name">Argentina</span></div>
       <div class="score-box"><span class="score">3</span><span class="score-sep">-</span><span class="score">0</span></div>
-      <div class="team right"><span class="team-name">Argelia</span><span class="flag-big">🇩🇿</span></div>
+      <div class="team right"><span class="team-name">Argelia</span><span class="team-code">ALG</span></div>
       <span class="badge badge-done">FT</span>
     </div>
-    <div class="match-info" style="padding:6px 0;font-size:11px;color:var(--color-text-tertiary)">Hat-trick de Messi · igualó a Klose como máximo goleador mundialista</div>
+    <div class="match" style="opacity:0.6">
+      <div class="team"><span class="team-code">SVN</span><span class="team-name">Eslovenia</span></div>
+      <div class="score-box"><span class="score" style="font-size:13px;color:var(--color-text-tertiary)">vs</span></div>
+      <div class="team right"><span class="team-name">Nueva Zelanda</span><span class="team-code">NZL</span></div>
+      <span class="badge badge-soon">Próx</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo K</div>
+    <div class="match">
+      <div class="team"><span class="team-code">ENG</span><span class="team-name">Inglaterra</span></div>
+      <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">0</span></div>
+      <div class="team right"><span class="team-name">Angola</span><span class="team-code">ANG</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match" style="opacity:0.6">
+      <div class="team"><span class="team-code">PER</span><span class="team-name">Perú</span></div>
+      <div class="score-box"><span class="score" style="font-size:13px;color:var(--color-text-tertiary)">vs</span></div>
+      <div class="team right"><span class="team-name">Islandia</span><span class="team-code">ISL</span></div>
+      <span class="badge badge-soon">Próx</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo L</div>
+    <div class="match">
+      <div class="team"><span class="team-code">ITA</span><span class="team-name">Italia</span></div>
+      <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Camerún</span><span class="team-code">CMR</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match" style="opacity:0.6">
+      <div class="team"><span class="team-code">CHI</span><span class="team-name">Chile</span></div>
+      <div class="score-box"><span class="score" style="font-size:13px;color:var(--color-text-tertiary)">vs</span></div>
+      <div class="team right"><span class="team-name">Irak</span><span class="team-code">IRQ</span></div>
+      <span class="badge badge-soon">Próx</span>
+    </div>
   </div>
 </div>
 
 <div class="section" id="tab-grupos">
-  <p class="today-date">Tabla de posiciones tras Jornada 1</p>
+  <p class="today-date">Estructura Oficial de los 12 Grupos</p>
   <div class="group-grid">
 
     <div class="card" style="padding:0.75rem">
       <div class="group-label"><span>Grupo A</span><span class="group-letter">A</span></div>
       <table class="standings-table">
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
-        <tr><td><span class="pos-dot pos-1"></span>🇲🇽 México</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
-        <tr><td><span class="pos-dot pos-2"></span>🇰🇷 Corea S.</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
-        <tr><td><span class="pos-dot"></span>🇨🇿 Chequia</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
-        <tr><td><span class="pos-dot"></span>🇿🇦 Sudáfrica</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot pos-1"></span>MEX México</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>KOR Corea S.</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot"></span>CZE Chequia</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>RSA Sudáfrica</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
       </table>
     </div>
 
@@ -336,10 +389,10 @@ nav::-webkit-scrollbar{display:none}
       <div class="group-label"><span>Grupo B</span><span class="group-letter">B</span></div>
       <table class="standings-table">
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
-        <tr><td><span class="pos-dot pos-1"></span>🇨🇦 Canadá</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot pos-2"></span>🇧🇦 Bosnia</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇶🇦 Catar</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇨🇭 Suiza</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot pos-1"></span>CAN Canadá</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>BIH Bosnia</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>QAT Catar</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>SUI Suiza</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
       </table>
     </div>
 
@@ -347,10 +400,10 @@ nav::-webkit-scrollbar{display:none}
       <div class="group-label"><span>Grupo C</span><span class="group-letter">C</span></div>
       <table class="standings-table">
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
-        <tr><td><span class="pos-dot pos-1"></span>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
-        <tr><td><span class="pos-dot pos-2"></span>🇧🇷 Brasil</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇲🇦 Marruecos</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇭🇹 Haití</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot pos-1"></span>SCO Escocia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>BRA Brasil</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>MAR Marruecos</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>HAI Haití</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
       </table>
     </div>
 
@@ -358,10 +411,10 @@ nav::-webkit-scrollbar{display:none}
       <div class="group-label"><span>Grupo D</span><span class="group-letter">D</span></div>
       <table class="standings-table">
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
-        <tr><td><span class="pos-dot pos-1"></span>🇺🇸 EE.UU.</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
-        <tr><td><span class="pos-dot pos-2"></span>🇦🇺 Australia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
-        <tr><td><span class="pos-dot"></span>🇹🇷 Turquía</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
-        <tr><td><span class="pos-dot"></span>🇵🇾 Paraguay</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot pos-1"></span>USA EE.UU.</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>AUS Australia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot"></span>TUR Turquía</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>PAR Paraguay</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
       </table>
     </div>
 
@@ -369,10 +422,10 @@ nav::-webkit-scrollbar{display:none}
       <div class="group-label"><span>Grupo E</span><span class="group-letter">E</span></div>
       <table class="standings-table">
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
-        <tr><td><span class="pos-dot pos-1"></span>🇩🇪 Alemania</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
-        <tr><td><span class="pos-dot pos-2"></span>🇨🇮 Marfil</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
-        <tr><td><span class="pos-dot"></span>🇪🇨 Ecuador</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
-        <tr><td><span class="pos-dot"></span>🇨🇼 Curazao</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot pos-1"></span>GER Alemania</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>CIV C. Marfil</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot"></span>ECU Ecuador</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>CUW Curazao</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
       </table>
     </div>
 
@@ -380,10 +433,10 @@ nav::-webkit-scrollbar{display:none}
       <div class="group-label"><span>Grupo F</span><span class="group-letter">F</span></div>
       <table class="standings-table">
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
-        <tr><td><span class="pos-dot pos-1"></span>🇸🇪 Suecia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
-        <tr><td><span class="pos-dot pos-2"></span>🇯🇵 Japón</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇳🇱 P. Bajos</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇹🇳 Túnez</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot pos-1"></span>SWE Suecia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>JPN Japón</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>NED P. Bajos</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>TUN Túnez</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
       </table>
     </div>
 
@@ -391,10 +444,10 @@ nav::-webkit-scrollbar{display:none}
       <div class="group-label"><span>Grupo G</span><span class="group-letter">G</span></div>
       <table class="standings-table">
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
-        <tr><td><span class="pos-dot pos-1"></span>🇧🇪 Bélgica</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot pos-2"></span>🇪🇬 Egipto</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇮🇷 Irán</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
-        <tr><td><span class="pos-dot"></span>🇳🇿 N. Zelanda</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot pos-1"></span>BEL Bélgica</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>EGY Egipto</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>IRN Irán</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>NZL N. Zelanda</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
       </table>
     </div>
 
@@ -402,10 +455,54 @@ nav::-webkit-scrollbar{display:none}
       <div class="group-label"><span>Grupo H</span><span class="group-letter">H</span></div>
       <table class="standings-table">
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
-        <tr><td><span class="pos-dot pos-1"></span>🇪🇸 España</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot pos-2"></span>🇨🇻 Cabo Verde</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇸🇦 Arabia S.</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
-        <tr><td><span class="pos-dot"></span>🇺🇾 Uruguay</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot pos-1"></span>URU Uruguay</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>ESP España</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>CPV Cabo Verde</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>KSA Arabia S.</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo I</span><span class="group-letter">I</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>FRA Francia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>COL Colombia</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>PRK Corea N.</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>MLI Malí</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo J</span><span class="group-letter">J</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>ARG Argentina</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>SVN Eslovenia</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>NZL N. Zelanda</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>ALG Argelia</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo K</span><span class="group-letter">K</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>ENG Inglaterra</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>PER Perú</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>ISL Islandia</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>ANG Angola</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo L</span><span class="group-letter">L</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>ITA Italia</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>CMR Camerún</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>CHI Chile</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>IRQ Irak</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
       </table>
     </div>
 
@@ -419,14 +516,10 @@ nav::-webkit-scrollbar{display:none}
 <div class="section" id="tab-goleadores">
   <div class="card">
     <div class="card-title">Máximos goleadores · Jornada 1</div>
-    <div class="top-scorer"><span class="scorer-rank">1</span><div class="scorer-info"><div class="scorer-name">Lionel Messi 🇦🇷</div><div class="scorer-team">Argentina · Grupo J</div></div><span class="scorer-goals">3 ⚽</span></div>
-    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Niclas Füllkrug 🇩🇪</div><div class="scorer-team">Alemania · Grupo E</div></div><span class="scorer-goals">2 ⚽</span></div>
-    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Kai Havertz 🇩🇪</div><div class="scorer-team">Alemania · Grupo E</div></div><span class="scorer-goals">2 ⚽</span></div>
-    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Alexander Isak 🇸🇪</div><div class="scorer-team">Suecia · Grupo F</div></div><span class="scorer-goals">2 ⚽</span></div>
-    <div class="top-scorer"><span class="scorer-rank">5</span><div class="scorer-info"><div class="scorer-name">Julián Quiñones 🇲🇽</div><div class="scorer-team">México · Grupo A</div></div><span class="scorer-goals">1 ⚽</span></div>
-    <div class="top-scorer"><span class="scorer-rank">5</span><div class="scorer-info"><div class="scorer-name">Raúl Jiménez 🇲🇽</div><div class="scorer-team">México · Grupo A</div></div><span class="scorer-goals">1 ⚽</span></div>
-    <div class="top-scorer"><span class="scorer-rank">5</span><div class="scorer-info"><div class="scorer-name">Sébastien Haller 🇨🇮</div><div class="scorer-team">Costa de Marfil · Grupo E</div></div><span class="scorer-goals">1 ⚽</span></div>
-    <div class="top-scorer"><span class="scorer-rank">5</span><div class="scorer-info"><div class="scorer-name">Viktor Gyökeres 🇸🇪</div><div class="scorer-team">Suecia · Grupo F</div></div><span class="scorer-goals">1 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">1</span><div class="scorer-info"><div class="scorer-name">Lionel Messi (ARG)</div><div class="scorer-team">Argentina · Grupo J</div></div><span class="scorer-goals">3 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Niclas Füllkrug (GER)</div><div class="scorer-team">Alemania · Grupo E</div></div><span class="scorer-goals">2 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Kai Havertz (GER)</div><div class="scorer-team">Alemania · Grupo E</div></div><span class="scorer-goals">2 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Alexander Isak (SWE)</div><div class="scorer-team">Suecia · Grupo F</div></div><span class="scorer-goals">2 ⚽</span></div>
   </div>
   <div class="card" style="background:var(--color-background-primary)">
     <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.7">
@@ -456,18 +549,10 @@ nav::-webkit-scrollbar{display:none}
   <div class="card">
     <div class="card-title">Sedes principales</div>
     <div class="sede-list">
-      <div class="sede-item"><div style="font-weight:500">Estadio Azteca</div><div class="sede-country">🇲🇽 Ciudad de México · Inauguración</div></div>
-      <div class="sede-item"><div style="font-weight:500">MetLife Stadium</div><div class="sede-country">🇺🇸 Nueva York · Final</div></div>
-      <div class="sede-item"><div style="font-weight:500">SoFi Stadium</div><div class="sede-country">🇺🇸 Los Ángeles</div></div>
-      <div class="sede-item"><div style="font-weight:500">BMO Field</div><div class="sede-country">🇨🇦 Toronto</div></div>
-      <div class="sede-item"><div style="font-weight:500">AT&T Stadium</div><div class="sede-country">🇺🇸 Dallas</div></div>
-      <div class="sede-item"><div style="font-weight:500">Estadio BBVA</div><div class="sede-country">🇲🇽 Monterrey</div></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-title">Formato del torneo</div>
-    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.8">
-      Por primera vez, 48 selecciones en 12 grupos de 4 equipos. Los 2 primeros de cada grupo + los 8 mejores terceros avanzan a la Ronda de 32, tras la que el torneo sigue en eliminación directa.
+      <div class="sede-item"><div style="font-weight:500">Estadio Azteca</div><div class="sede-country">México · Ciudad de México</div></div>
+      <div class="sede-item"><div style="font-weight:500">MetLife Stadium</div><div class="sede-country">EE.UU. · Nueva York</div></div>
+      <div class="sede-item"><div style="font-weight:500">SoFi Stadium</div><div class="sede-country">EE.UU. · Los Ángeles</div></div>
+      <div class="sede-item"><div style="font-weight:500">BMO Field</div><div class="sede-country">Canadá · Toronto</div></div>
     </div>
   </div>
 </div>
