@@ -1,0 +1,416 @@
+<style>
+:root {
+    --color-background-primary: #0b0f19;    
+    --color-background-tertiary: #131c2e;  
+    --color-text-primary: #f1f5f9;          
+    --color-text-secondary: #94a3b8;     
+    --color-text-tertiary: #64748b;         
+    --border-color-tertiary: #23314d;       
+
+    --border-radius-xl: 16px;
+    --border-radius-lg: 12px;
+    --border-radius-md: 8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary)}
+.hero{background:linear-gradient(135deg,#1a3a6b 0%,#0d2244 60%,#c8102e 100%);padding:2rem 1.5rem 1.5rem;color:#fff;text-align:center;border-radius:0 0 var(--border-radius-xl) var(--border-radius-xl);margin-bottom:1.5rem}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.35);border-radius:20px;font-size:11px;padding:3px 12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.6rem}
+.hero h1{font-size:22px;font-weight:500;margin-bottom:0.25rem}
+.hero-sub{font-size:13px;opacity:0.8;margin-bottom:1rem}
+.hero-stats{display:flex;gap:1.5rem;justify-content:center}
+.hero-stat{text-align:center}
+.hero-stat .n{font-size:22px;font-weight:500}
+.hero-stat .l{font-size:11px;opacity:0.7;text-transform:uppercase;letter-spacing:0.5px}
+.flags{display:flex;gap:6px;justify-content:center;margin-top:0.8rem;flex-wrap:wrap}
+.flag-chip{background:rgba(255,255,255,0.15);border-radius:10px;padding:2px 8px;font-size:11px}
+nav{display:flex;gap:4px;padding:0 1rem;margin-bottom:1rem;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+.tab{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:6px 14px;font-size:13px;cursor:pointer;white-space:nowrap;color:var(--color-text-secondary);transition:all 0.15s}
+.tab.active{background:#1a3a6b;color:#fff;border-color:#1a3a6b}
+.section{display:none;padding:0 1rem 2rem}
+.section.active{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:0.75rem}
+.card-title{font-size:13px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.75rem}
+.match{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.match:last-child{border-bottom:none;padding-bottom:0}
+.team{display:flex;align-items:center;gap:6px;flex:1}
+.team.right{flex-direction:row-reverse;text-align:right}
+.team-name{font-size:13px;font-weight:500}
+.score-box{display:flex;gap:4px;align-items:center;min-width:54px;justify-content:center}
+.score{font-size:18px;font-weight:500;width:22px;text-align:center}
+.score-sep{color:var(--color-text-tertiary);font-size:14px}
+.match-info{font-size:11px;color:var(--color-text-tertiary);text-align:center}
+.flag-big{font-size:20px}
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;font-weight:500}
+.badge-live{background:var(--color-background-danger);color:var(--color-text-danger)}
+.badge-done{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.badge-soon{background:var(--color-background-info);color:var(--color-text-info)}
+.group-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+@media(max-width:500px){.group-grid{grid-template-columns:1fr}}
+.standings-table{width:100%;font-size:12px;border-collapse:collapse}
+.standings-table th{color:var(--color-text-tertiary);font-weight:400;text-align:center;padding:4px 2px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.standings-table th:first-child{text-align:left}
+.standings-table td{padding:5px 2px;text-align:center;border-bottom:0.5px solid var(--color-border-tertiary)}
+.standings-table td:first-child{text-align:left;display:flex;align-items:center;gap:5px}
+.standings-table tr:last-child td{border-bottom:none}
+.pos-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
+.pos-1,.pos-2{background:#1a3a6b}
+.pos-3-8{background:#f5a623}
+.pts{font-weight:500;color:var(--color-text-primary)}
+.group-label{font-size:12px;font-weight:500;color:#1a3a6b;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.group-letter{font-size:18px;font-weight:500;color:#1a3a6b}
+.info-row{display:flex;gap:0.75rem;margin-bottom:0.75rem}
+.info-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:0.75rem 1rem;flex:1;text-align:center}
+.info-card .num{font-size:22px;font-weight:500;color:#1a3a6b}
+.info-card .lbl{font-size:11px;color:var(--color-text-secondary)}
+.sede-list{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.sede-item{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:12px}
+.sede-country{font-size:10px;color:var(--color-text-tertiary)}
+.top-scorer{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.top-scorer:last-child{border-bottom:none}
+.scorer-rank{font-size:13px;font-weight:500;color:var(--color-text-tertiary);width:16px;text-align:center}
+.scorer-info{flex:1}
+.scorer-name{font-size:13px;font-weight:500}
+.scorer-team{font-size:11px;color:var(--color-text-secondary)}
+.scorer-goals{font-size:16px;font-weight:500;color:#c8102e}
+.today-date{font-size:12px;color:var(--color-text-tertiary);margin-bottom:0.75rem;text-align:center}
+</style>
+
+<h2 class="sr-only">Mundial de Fútbol FIFA 2026</h2>
+
+<div class="hero">
+  <div class="hero-badge">🏆 FIFA World Cup 2026</div>
+  <h1>Copa Mundial 2026</h1>
+  <p class="hero-sub">Estados Unidos · Canadá · México — Fase de Grupos en curso</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="n">48</div><div class="l">Selecciones</div></div>
+    <div class="hero-stat"><div class="n">104</div><div class="l">Partidos</div></div>
+    <div class="hero-stat"><div class="n">12</div><div class="l">Grupos</div></div>
+    <div class="hero-stat"><div class="n">16</div><div class="l">Ciudades</div></div>
+  </div>
+  <div class="flags" style="margin-top:0.8rem">
+    <span class="flag-chip">🇺🇸 EE.UU.</span>
+    <span class="flag-chip">🇨🇦 Canadá</span>
+    <span class="flag-chip">🇲🇽 México</span>
+    <span class="flag-chip" style="background:rgba(200,16,46,0.4)">Final: 19 jul · MetLife Stadium</span>
+  </div>
+</div>
+
+<nav>
+  <button class="tab active" onclick="showTab(event, 'resultados')">Resultados</button>
+  <button class="tab" onclick="showTab(event, 'grupos')">Grupos</button>
+  <button class="tab" onclick="showTab(event, 'goleadores')">Goleadores</button>
+  <button class="tab" onclick="showTab(event, 'info')">Info</button>
+</nav>
+
+<div class="section active" id="tab-resultados">
+  <p class="today-date">Jornada 1 — Fase de Grupos · Resultados al 17 jun 2026</p>
+
+  <div class="card">
+    <div class="card-title">Grupo A</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇲🇽</span><span class="team-name">México</span></div>
+      <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">0</span></div>
+      <div class="team right"><span class="team-name">Sudáfrica</span><span class="flag-big">🇿🇦</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇰🇷</span><span class="team-name">Corea del Sur</span></div>
+      <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Chequia</span><span class="flag-big">🇨🇿</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo B</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇨🇦</span><span class="team-name">Canadá</span></div>
+      <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Bosnia</span><span class="flag-big">🇧🇦</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇶🇦</span><span class="team-name">Catar</span></div>
+      <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Suiza</span><span class="flag-big">🇨🇭</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo C</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🏴</span><span class="team-name">Escocia</span></div>
+      <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">0</span></div>
+      <div class="team right"><span class="team-name">Haití</span><span class="flag-big">🇭🇹</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇧🇷</span><span class="team-name">Brasil</span></div>
+      <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Marruecos</span><span class="flag-big">🇲🇦</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo D</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇺🇸</span><span class="team-name">Estados Unidos</span></div>
+      <div class="score-box"><span class="score">4</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Paraguay</span><span class="flag-big">🇵🇾</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇦🇺</span><span class="team-name">Australia</span></div>
+      <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">0</span></div>
+      <div class="team right"><span class="team-name">Turquía</span><span class="flag-big">🇹🇷</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo E</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇩🇪</span><span class="team-name">Alemania</span></div>
+      <div class="score-box"><span class="score">7</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Curazao</span><span class="flag-big">🇨🇼</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇨🇮</span><span class="team-name">Costa de Marfil</span></div>
+      <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">0</span></div>
+      <div class="team right"><span class="team-name">Ecuador</span><span class="flag-big">🇪🇨</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo F</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇸🇪</span><span class="team-name">Suecia</span></div>
+      <div class="score-box"><span class="score">5</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Túnez</span><span class="flag-big">🇹🇳</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇯🇵</span><span class="team-name">Japón</span></div>
+      <div class="score-box"><span class="score">2</span><span class="score-sep">-</span><span class="score">2</span></div>
+      <div class="team right"><span class="team-name">Países Bajos</span><span class="flag-big">🇳🇱</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo G</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇧🇪</span><span class="team-name">Bélgica</span></div>
+      <div class="score-box"><span class="score">1</span><span class="score-sep">-</span><span class="score">1</span></div>
+      <div class="team right"><span class="team-name">Egipto</span><span class="flag-big">🇪🇬</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match" style="opacity:0.6">
+      <div class="team"><span class="flag-big">🇮🇷</span><span class="team-name">Irán</span></div>
+      <div class="score-box"><span class="score" style="font-size:13px;color:var(--color-text-tertiary)">vs</span></div>
+      <div class="team right"><span class="team-name">Nueva Zelanda</span><span class="flag-big">🇳🇿</span></div>
+      <span class="badge badge-soon">Hoy</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo H</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇪🇸</span><span class="team-name">España</span></div>
+      <div class="score-box"><span class="score">0</span><span class="score-sep">-</span><span class="score">0</span></div>
+      <div class="team right"><span class="team-name">Cabo Verde</span><span class="flag-big">🇨🇻</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match" style="opacity:0.6">
+      <div class="team"><span class="flag-big">🇸🇦</span><span class="team-name">Arabia Saudita</span></div>
+      <div class="score-box"><span class="score" style="font-size:13px;color:var(--color-text-tertiary)">vs</span></div>
+      <div class="team right"><span class="team-name">Uruguay</span><span class="flag-big">🇺🇾</span></div>
+      <span class="badge badge-soon">Hoy</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grupo J · Resultados destacados</div>
+    <div class="match">
+      <div class="team"><span class="flag-big">🇦🇷</span><span class="team-name">Argentina</span></div>
+      <div class="score-box"><span class="score">3</span><span class="score-sep">-</span><span class="score">0</span></div>
+      <div class="team right"><span class="team-name">Argelia</span><span class="flag-big">🇩🇿</span></div>
+      <span class="badge badge-done">FT</span>
+    </div>
+    <div class="match-info" style="padding:6px 0;font-size:11px;color:var(--color-text-tertiary)">Hat-trick de Messi · igualó a Klose como máximo goleador mundialista</div>
+  </div>
+</div>
+
+<div class="section" id="tab-grupos">
+  <p class="today-date">Tabla de posiciones tras Jornada 1</p>
+  <div class="group-grid">
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo A</span><span class="group-letter">A</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>🇲🇽 México</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>🇰🇷 Corea S.</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot"></span>🇨🇿 Chequia</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>🇿🇦 Sudáfrica</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo B</span><span class="group-letter">B</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>🇨🇦 Canadá</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>🇧🇦 Bosnia</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇶🇦 Catar</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇨🇭 Suiza</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo C</span><span class="group-letter">C</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>🏴 Escocia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>🇧🇷 Brasil</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇲🇦 Marruecos</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇭🇹 Haití</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo D</span><span class="group-letter">D</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>🇺🇸 EE.UU.</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>🇦🇺 Australia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot"></span>🇹🇷 Turquía</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>🇵🇾 Paraguay</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo E</span><span class="group-letter">E</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>🇩🇪 Alemania</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>🇨🇮 Marfil</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot"></span>🇪🇨 Ecuador</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>🇨🇼 Curazao</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo F</span><span class="group-letter">F</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>🇸🇪 Suecia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>🇯🇵 Japón</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇳🇱 P. Bajos</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇹🇳 Túnez</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo G</span><span class="group-letter">G</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>🇧🇪 Bélgica</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>🇪🇬 Egipto</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇮🇷 Irán</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>🇳🇿 N. Zelanda</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="padding:0.75rem">
+      <div class="group-label"><span>Grupo H</span><span class="group-letter">H</span></div>
+      <table class="standings-table">
+        <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
+        <tr><td><span class="pos-dot pos-1"></span>🇪🇸 España</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot pos-2"></span>🇨🇻 Cabo Verde</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇸🇦 Arabia S.</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+        <tr><td><span class="pos-dot"></span>🇺🇾 Uruguay</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td></tr>
+      </table>
+    </div>
+
+  </div>
+  <div style="padding:0.5rem 0.25rem;font-size:11px;color:var(--color-text-tertiary);display:flex;gap:12px">
+    <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#1a3a6b;vertical-align:middle;margin-right:3px"></span>Clasifican directamente</span>
+    <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#f5a623;vertical-align:middle;margin-right:3px"></span>Posible mejor 3.º</span>
+  </div>
+</div>
+
+<div class="section" id="tab-goleadores">
+  <div class="card">
+    <div class="card-title">Máximos goleadores · Jornada 1</div>
+    <div class="top-scorer"><span class="scorer-rank">1</span><div class="scorer-info"><div class="scorer-name">Lionel Messi 🇦🇷</div><div class="scorer-team">Argentina · Grupo J</div></div><span class="scorer-goals">3 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Niclas Füllkrug 🇩🇪</div><div class="scorer-team">Alemania · Grupo E</div></div><span class="scorer-goals">2 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Kai Havertz 🇩🇪</div><div class="scorer-team">Alemania · Grupo E</div></div><span class="scorer-goals">2 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">2</span><div class="scorer-info"><div class="scorer-name">Alexander Isak 🇸🇪</div><div class="scorer-team">Suecia · Grupo F</div></div><span class="scorer-goals">2 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">5</span><div class="scorer-info"><div class="scorer-name">Julián Quiñones 🇲🇽</div><div class="scorer-team">México · Grupo A</div></div><span class="scorer-goals">1 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">5</span><div class="scorer-info"><div class="scorer-name">Raúl Jiménez 🇲🇽</div><div class="scorer-team">México · Grupo A</div></div><span class="scorer-goals">1 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">5</span><div class="scorer-info"><div class="scorer-name">Sébastien Haller 🇨🇮</div><div class="scorer-team">Costa de Marfil · Grupo E</div></div><span class="scorer-goals">1 ⚽</span></div>
+    <div class="top-scorer"><span class="scorer-rank">5</span><div class="scorer-info"><div class="scorer-name">Viktor Gyökeres 🇸🇪</div><div class="scorer-team">Suecia · Grupo F</div></div><span class="scorer-goals">1 ⚽</span></div>
+  </div>
+  <div class="card" style="background:var(--color-background-secondary)">
+    <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.7">
+      <strong style="font-weight:500">Dato histórico:</strong> Messi marcó hat-trick ante Argelia en su partido 200 con Argentina, igualando a Miroslav Klose (16 goles) como máximo goleador de la historia de los mundiales.
+    </div>
+  </div>
+</div>
+
+<div class="section" id="tab-info">
+  <div class="info-row">
+    <div class="info-card"><div class="num">48</div><div class="lbl">Selecciones</div></div>
+    <div class="info-card"><div class="num">104</div><div class="lbl">Partidos</div></div>
+    <div class="info-card"><div class="num">12</div><div class="lbl">Grupos</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Calendario del torneo</div>
+    <div style="font-size:13px;line-height:2">
+      <div style="display:flex;justify-content:space-between;border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:6px;margin-bottom:6px"><span>Fase de Grupos</span><span style="color:var(--color-text-secondary)">11 – 27 jun</span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:6px;margin-bottom:6px"><span>Dieciseisavos de final</span><span style="color:var(--color-text-secondary)">28 jun – 3 jul</span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:6px;margin-bottom:6px"><span>Octavos de final</span><span style="color:var(--color-text-secondary)">4 – 7 jul</span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:6px;margin-bottom:6px"><span>Cuartos de final</span><span style="color:var(--color-text-secondary)">9 – 11 jul</span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:6px;margin-bottom:6px"><span>Semifinales</span><span style="color:var(--color-text-secondary)">14 – 15 jul</span></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:6px;margin-bottom:6px"><span>Tercer puesto</span><span style="color:var(--color-text-secondary)">18 jul</span></div>
+      <div style="display:flex;justify-content:space-between"><span style="font-weight:500">🏆 Gran Final</span><span style="color:#c8102e;font-weight:500">19 jul · MetLife Stadium</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Sedes principales</div>
+    <div class="sede-list">
+      <div class="sede-item"><div style="font-weight:500">Estadio Azteca</div><div class="sede-country">🇲🇽 Ciudad de México · Inauguración</div></div>
+      <div class="sede-item"><div style="font-weight:500">MetLife Stadium</div><div class="sede-country">🇺🇸 Nueva York · Final</div></div>
+      <div class="sede-item"><div style="font-weight:500">SoFi Stadium</div><div class="sede-country">🇺🇸 Los Ángeles</div></div>
+      <div class="sede-item"><div style="font-weight:500">BMO Field</div><div class="sede-country">🇨🇦 Toronto</div></div>
+      <div class="sede-item"><div style="font-weight:500">AT&T Stadium</div><div class="sede-country">🇺🇸 Dallas</div></div>
+      <div class="sede-item"><div style="font-weight:500">Estadio BBVA</div><div class="sede-country">🇲🇽 Monterrey</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Formato del torneo</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.8">
+      Por primera vez, 48 selecciones en 12 grupos de 4 equipos. Los 2 primeros de cada grupo + los 8 mejores terceros avanzan a la Ronda de 32, tras la que el torneo sigue en eliminación directa.
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(event, id){
+  // 1. Ocultar todas las secciones de contenido
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  // 2. Quitar el color azul (clase active) de todos los botones
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  
+  // 3. Mostrar la sección seleccionada usando su ID
+  document.getElementById('tab-' + id).classList.add('active');
+  // 4. Pintar de azul únicamente el botón que fue clickeado
+  event.currentTarget.classList.add('active');
+}
+</script>
