@@ -12,7 +12,7 @@
     --border-radius-md: 8px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans), system-ui, -apple-system, sans-serif;background:var(--color-background-tertiary);color:var(--color-text-primary)}
+body{font-family:system-ui, -apple-system, sans-serif;background:var(--color-background-tertiary);color:var(--color-text-primary)}
 .hero{background:linear-gradient(135deg,#1a3a6b 0%,#0d2244 60%,#c8102e 100%);padding:2rem 1.5rem 1.5rem;color:#fff;text-align:center;border-radius:0 0 var(--border-radius-xl) var(--border-radius-xl);margin-bottom:1.5rem}
 .hero-badge{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.35);border-radius:20px;font-size:11px;padding:3px 12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.6rem}
 .hero h1{font-size:22px;font-weight:500;margin-bottom:0.25rem}
@@ -33,14 +33,14 @@ nav::-webkit-scrollbar{display:none}
 .card-title{font-size:13px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.75rem}
 .match{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:0.5px solid var(--border-color-tertiary)}
 .match:last-child{border-bottom:none;padding-bottom:0}
-.team{display:flex;align-items:center;gap:6px;flex:1}
+.team{display:flex;align-items:center;gap:8px;flex:1}
 .team.right{flex-direction:row-reverse;text-align:right}
 .team-name{font-size:13px;font-weight:500}
 .score-box{display:flex;gap:4px;align-items:center;min-width:54px;justify-content:center}
 .score{font-size:18px;font-weight:500;width:22px;text-align:center}
 .score-sep{color:var(--color-text-tertiary);font-size:14px}
 .match-info{font-size:11px;color:var(--color-text-tertiary);text-align:center}
-.flag-big{font-size:20px}
+.flag-big{font-size:18px;display:inline-block;line-height:1}
 .badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;font-weight:500}
 .badge-done{background:#23314d;color:var(--color-text-primary)}
 .badge-soon{background:rgba(26,58,107,0.3);color:#94a3b8}
@@ -349,7 +349,7 @@ nav::-webkit-scrollbar{display:none}
         <tr><th>Equipo</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr>
         <tr><td><span class="pos-dot pos-1"></span>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="pts">3</td></tr>
         <tr><td><span class="pos-dot pos-2"></span>🇧🇷 Brasil</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
-        <tr><td><span class="pos-dot"></span>🇲🇦 Maruecos</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
+        <tr><td><span class="pos-dot"></span>🇲🇦 Marruecos</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="pts">1</td></tr>
         <tr><td><span class="pos-dot"></span>🇭🇹 Haití</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="pts">0</td></tr>
       </table>
     </div>
