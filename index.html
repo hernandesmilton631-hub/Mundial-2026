@@ -35,17 +35,17 @@ async function refresh() {
     const btn = document.getElementById('refresh-btn');
     const container = document.getElementById('resultados-container');
     
-  
+    // 1. Feedback visual
     btn.disabled = true;
     btn.innerText = "Actualizando...";
     container.innerHTML = '<p class="loading">Consultando datos...</p>';
     
     try {
-       
+        // 2. Llamada a tu servidor proxy (Vercel)
         const res = await fetch('/api/partidos');
         const data = await res.json();
         
-      
+        // 3. Mostrar resultados
         console.log("Datos recibidos:", data);
         if (data.response && data.response.length > 0) {
             let html = "";
