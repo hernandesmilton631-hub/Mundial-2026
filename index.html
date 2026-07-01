@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundial 2026 - Portal en Vivo</title>
+    <style>
+        :root { --primary: #1a3a6b; --accent: #c8102e; --text: #333; }
+        body { font-family: sans-serif; background: #f4f7f6; color: var(--text); padding: 20px; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, #0d2244 55%, var(--accent) 100%); padding: 30px; color: white; text-align: center; border-radius: 15px; margin-bottom: 20px; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .btn-update { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .btn-update:disabled { background: #888; }
+        .match { border-bottom: 1px solid #eee; padding: 10px 0; display: flex; justify-content: space-between; }
+        .loading { font-style: italic; color: #888; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>FIFA WORLD CUP 2026</h1>
+    <p>Lo mejor del mundial aqui</p>
+</div>
+
+<div class="card">
+    <h3>Marcadores en Vivo</h3>
+    <button class="btn-update" id="refresh-btn" onclick="refresh()">Actualizar Resultados</button>
+    <div id="resultados-container" style="margin-top: 20px;">
+        <p class="loading">Presiona el botón para cargar los partidos en vivo...</p>
+    </div>
+</div>
+
+<script>
+async function refresh() {
+    const btn = document.getElementById('refresh-btn');
+    const container = document.getElementById('resultados-container');
+    
+  
+    btn.disabled = true;
+    btn.innerText = "Actualizando...";
+    container.innerHTML = '<p class="loading">Consultando datos...</p>';
+    
+    try {
+       
+        const res = await fetch('/api/partidos');
+        const data = await res.json();
+        
+      
+        console.log("Datos recibidos:", data);
+        if (data.response && data.response.length > 0) {
+            let html = "";
+            data.response.forEach(p => {
+                html += `<div class="match">
+                    <span>${p.teams.home.name} vs ${p.teams.away.name}</span>
+                    <strong>${p.goals.home ?? 0} - ${p.goals.away ?? 0}</strong>
+                </div>`;
+            });
+            container.innerHTML = html;
+        } else {
+            container.innerHTML = "<p>No hay partidos en vivo en este momento.</p>";
+        }
+    } catch (e) {
+        console.error("Error:", e);
+        container.innerHTML = "<p style='color:red'>Error al conectar con el servidor. Verifica tu API_KEY en Vercel.</p>";
+    } finally {
+        btn.disabled = false;
+        btn.innerText = "Actualizar Resultados";
+    }
+}
+</script>
+
+</body>
+</html>
